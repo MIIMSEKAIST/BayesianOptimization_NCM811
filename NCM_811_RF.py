@@ -1,7 +1,6 @@
 # NCM_811_RF.py
 # -*- coding: utf-8 -*-
 
-# Enforce Agg before any third-party plotting import (belt & suspenders)
 import os
 os.environ["MPLBACKEND"] = "Agg"
 
