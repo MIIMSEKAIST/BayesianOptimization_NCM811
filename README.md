@@ -4,8 +4,7 @@ An iterative, experiment-in-the-loop Bayesian optimization workflow for identify
 
 The repository combines a random-forest surrogate model, expected-improvement acquisition, categorical precursor selection, bounded numerical process variables, strict iteration guards, and per-iteration diagnostic visualizations.
 
-> [!IMPORTANT]
-> The current public repository is not yet reproducible from a clean clone. The source imports `config.py`, but that file and the initial training CSV referenced by it are not included. See [Required local files](#required-local-files) before running the workflow.
+
 
 ## Overview
 
@@ -73,7 +72,6 @@ Install the Python dependencies with:
 python -m pip install numpy pandas matplotlib seaborn scikit-learn scikit-optimize
 ```
 
-For a reproducible release, add a pinned `requirements.txt` or environment file because serialized scikit-learn and scikit-optimize objects may not load correctly across library versions.
 
 ## Required local files
 
@@ -184,7 +182,6 @@ Depending on the amount of completed data, each snapshot may include:
 - out-of-bag parity, residual, and interval-calibration plots
 - `MANIFEST.txt` with the snapshot size and best measured capacity
 
-Some diagnostics require at least 10 completed experiments; the reliability suite requires at least 3.
 
 ### Optional interactive loop
 
@@ -206,15 +203,6 @@ The code prevents common state-management errors:
 
 Treat the accumulated CSV, optimizer pickle, encoder pickle, and `iteration.txt` as one synchronized campaign state. Back them up together before manual editing or migration.
 
-## Current limitations
-
-- `config.py`, the initial training CSV, and the accumulated experimental CSV are absent from the public repository, so the current checkout cannot run as-is.
-- `requirements.txt`, automated tests, and a sample configuration are not yet provided.
-- The numerical search bounds and categorical choices cannot be inferred from the committed files alone.
-- `update` currently passes all completed rows to the optimizer on each call, not only newly completed rows. Verify whether repeated observations are intended before using the workflow for a new campaign.
-- Pickle files should only be loaded from trusted sources. Python pickle can execute arbitrary code during deserialization.
-- The RF tree-to-tree spread used in the reliability plots is a relative uncertainty proxy, not a calibrated Bayesian posterior uncertainty.
-- With small experimental datasets, cross-validation, feature importance, and candidate ranking can be unstable and should be interpreted cautiously.
 
 ## Reproducing or continuing the included campaign
 
