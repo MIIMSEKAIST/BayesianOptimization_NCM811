@@ -1,0 +1,40 @@
+:: (run once if not trained)
+python NCM_811_RF.py --mode train -v
+
+:: 1
+python NCM_811_RF.py --mode iterate
+python NCM_811_RF.py --mode best --top 3
+:: run 3 experiments, fill CSV
+python NCM_811_RF.py --mode update
+python NCM_811_RF.py --mode visualize
+
+:: 2
+python NCM_811_RF.py --mode iterate
+python NCM_811_RF.py --mode best --top 3
+:: run 3 experiments, fill CSV
+python NCM_811_RF.py --mode update
+python NCM_811_RF.py --mode visualize
+
+:: 3
+python NCM_811_RF.py --mode iterate
+python NCM_811_RF.py --mode best --top 3
+:: run 3 experiments, fill CSV
+python NCM_811_RF.py --mode update
+python NCM_811_RF.py --mode visualize
+
+:: 4
+python NCM_811_RF.py --mode iterate
+python NCM_811_RF.py --mode best --top 3
+:: run 3 experiments, fill CSV
+python NCM_811_RF.py --mode update
+python NCM_811_RF.py --mode visualize
+
+:: 5
+python NCM_811_RF.py --mode iterate
+python NCM_811_RF.py --mode best --top 3
+:: run 3 experiments, fill CSV
+python NCM_811_RF.py --mode update
+python NCM_811_RF.py --mode visualize
+
+
+
